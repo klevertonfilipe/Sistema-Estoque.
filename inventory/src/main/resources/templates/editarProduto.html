@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Produto</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+<header>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/categorias">Categorias</a></li>
+                <li><a href="/saiba-mais">Saiba Mais</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div th:replace="searchButton"></div>
+</header>
+
+<main>
+    <section class="register-content">
+        <div><h2>Editar Produto</h2></div>
+
+        <form class="register-form" action="#" th:action="@{'/' + ${produto.getIdProduct()}}" method="post">
+            <input type="hidden" name="_method" value="PUT" />
+
+            <div class="form-group">
+                <label for="name">Nome:</label>
+                <input class="register-input" type="text" id="name" name="name" th:value="${produto.getName()}">
+            </div>
+
+            <div class="form-group">
+                <label for="price">Preço:</label>
+                <input class="register-input" type="number" id="price" name="price" step="0.01" th:value="${produto.getPrice()}">
+            </div>
+            <div class="form-group">
+                <label for="price">Quantidade:</label>
+                <input class="register-input" type="number" id="quantity" name="quantity" step="0.01" th:value="${produto.getQuantity()}">
+            </div>
+
+            <div class="form-group">
+                <label for="description">Descrição:</label>
+                <textarea class="register-input" id="description" name="description" th:text="${produto.getDescription()}"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="category">Categoria:</label>
+                <select class="register-select" id="category" name="categoryId">
+                    <option value="">Selecione uma categoria...</option>
+                    <option th:each="category : ${categories}"
+                            th:value="${category.idCategory}"
+                            th:text="${category.categoryName}"
+                            th:selected="${category.idCategory == produto.category.idCategory}">
+                    </option>
+                </select><br>
+            </div>
+            <button class="register-button"  type="submit">Salvar</button>
+        </form>
+    </section>
+</main>
+<div th:replace="footer :: footer"></div>
+</body>
+</html>
