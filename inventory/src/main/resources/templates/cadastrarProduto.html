@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Estoque</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+<header>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/categorias">Categorias</a></li>
+                <li><a href="/saiba-mais">Saiba Mais</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div th:replace="searchButton"></div>
+</header>
+
+<main>
+    <section class="register-content">
+           <div><h2 >Cadastrar Novo Produto</h2>
+
+            <form class="register-form" action="/" method="post">
+                <div class="form-group">
+                    <label for="name">Nome:</label>
+                    <input class="register-input" type="text" id="name" name="name" placeholder="Digite um nome">
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Preço:</label>
+                    <input class="register-input" type="text" id="price" name="price" placeholder="Digite um preço">
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity">Quantidade:</label>
+                    <input class="register-input" type="int" id="quantity" name="quantity" placeholder="Digite a quantidade">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Descrição:</label>
+                    <textarea class="register-textarea" id="description" name="description" placeholder="Digite a descrição do produto"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Categoria:</label>
+                    <select class="register-select" id="category" name="categoryId">
+                        <option value="">Selecione uma categoria...</option>
+                        <option th:each="category : ${categories}" th:value="${category.idCategory}" th:text="${category.categoryName}"></option>
+                    </select>
+                </div>
+
+                <button class="register-button" type="submit">Cadastrar</button>
+            </form>
+           </div>
+    </section>
+
+</main>
+
+<div th:replace="footer :: footer"></div>
+</body>
+</html>
