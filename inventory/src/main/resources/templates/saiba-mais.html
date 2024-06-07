@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saiba-Mais</title>
+    <link rel="stylesheet" href="../css/saiba-mais.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+<header>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/categorias">Categorias</a></li>
+                <li><a href="/saiba-mais">Saiba Mais</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div th:replace="searchButton"></div>
+</header>
+
+<main>
+    <div id="content">
+        <h1>O que é o projeto de Gerenciamento de Estoque?</h1>
+    </div>
+    <ol>
+        <li>
+            <strong>Banco de Dados Integrado:</strong> O projeto utiliza um banco de dados para armazenar todas as informações relacionadas aos
+            produtos e categorias. Isso permite uma gestão centralizada e segura dos dados.
+        </li>
+        <li>
+            <strong>Árvore Binária Splay:</strong> Uma das características distintivas do projeto é o uso da estrutura de dados conhecida como árvore binária Splay. Essa estrutura é utilizada para organizar e exibir os itens de forma eficiente na tela, proporcionando uma experiência de usuário otimizada.
+        </li>
+        <li> <strong>Gestão de Produtos e Categorias:</strong> A aplicação oferece recursos completos para a gestão de produtos e s
+            uas respectivas categorias. Os usuários podem adicionar, editar e excluir produtos,
+            bem como organizar e classificar categorias conforme necessário.
+        </li>
+
+        <li> <strong>Interface Intuitiva:</strong> A interface do projeto foi projetada com foco na usabilidade e na experiência do usuário.
+            Os elementos visuais são claros e intuitivos, facilitando a navegação e o uso da aplicação.
+        </li>
+
+    </ol>
+    <h2>Por que escolhemos a Árvore Binária Splay?</h2>
+    <p>
+        A escolha da árvore binária Splay para a exibição dos itens na tela foi motivada por sua eficiência e simplicidade de implementação.
+        Esta estrutura de dados oferece um desempenho excepcional para operações de busca e é especialmente adequada para aplicações que exigem uma
+        alta taxa de acesso aos dados, como é o caso do nosso projeto de Gerenciamento de Estoque.
+    </p>
+</main>
+
+<div th:replace="footer :: footer"></div>
+</body>
+
+</html>
+
