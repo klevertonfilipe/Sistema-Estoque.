@@ -1,0 +1,12 @@
+<div class="search">
+    <form action="/produto" method="post">
+        <input type="text" placeholder="Procurar produto..." name="productName">
+
+        <select name="categoryId">
+            <option value="">Filtrar</option>
+            <option th:each="category : ${categories}" th:value="${category.idCategory}" th:text="${category.categoryName}"></option>
+        </select>
+
+        <button type="submit">Buscar</button>
+    </form>
+</div>
